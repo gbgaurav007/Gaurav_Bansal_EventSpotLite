@@ -4,7 +4,7 @@ import { AiOutlineCalendar, AiOutlineEnvironment, AiFillStar, AiOutlineDown, AiO
 
 const EventModal = ({ event, closeModal }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const imagePath = `/src/assets/${event.imgName}.jpeg`;
+  const imagePath = `/assets/${event.imgName}.jpeg`;
 
   const toggleExpand = () => {
     setIsExpanded(!isExpanded);
