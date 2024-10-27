@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import '../styles.css';
-import c1 from '../assets/c1.jpeg';
-import c2 from '../assets/c2.jpeg';
-import c3 from '../assets/c3.jpeg';
-import c4 from '../assets/c4.jpeg';
-import c5 from '../assets/c5.jpeg';
-import c6 from '../assets/c6.jpeg';
-import c7 from '../assets/c7.jpeg';
+import c1 from '../../public/assets/c1.jpeg';
+import c2 from '../../public/assets/c2.jpeg';
+import c3 from '../../public/assets/c3.jpeg';
+import c4 from '../../public/assets/c4.jpeg';
+import c5 from '../../public/assets/c5.jpeg';
+import c6 from '../../public/assets/c6.jpeg';
+import c7 from '../../public/assets/c7.jpeg';
 
 const images = [
     {src: c1, text: 'Music & Live Concerts'},

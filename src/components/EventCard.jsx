@@ -4,7 +4,7 @@ import { FaCalendarAlt, FaMapMarkerAlt } from 'react-icons/fa';
 const EventCard = ({ event, openModal }) => {
   const { name, date, location, category, imgName, description, price } = event;
 
-  const imagePath = `/src/assets/${imgName}.jpeg`;
+  const imagePath = `/assets/${imgName}.jpeg`;
 
   return (
     <div 
