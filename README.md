@@ -6,7 +6,7 @@ EventSpot Lite is a web application designed to display local events in a respon
 
 ### Features
 
-- Displays Wvents: Animated carousel showcasing list of trending featured events with smooth transitions.
+- Displays Events: Animated carousel showcasing list of trending featured events with smooth transitions.
 - Event Sections: Events categorized into different sections for quick browsing.
 - Filtering Options: Live filtering options based on categories like genre and location.
 - Animations: Engaging animations and a visually appealing interface.
@@ -31,7 +31,7 @@ EventSpot Lite is a web application designed to display local events in a respon
 
    ```bash
    https://github.com/gbgaurav007/Gaurav_Bansal_EventSpotLite.git
-   cd EventSpotLite
+   cd Gaurav_Bansal_EventSpotLite
    ```
 
 2. **Install Node Modules:**
@@ -54,10 +54,10 @@ EventSpot Lite is a web application designed to display local events in a respon
 ## Folder Structure
 
 ```plaintext
-EventSpotLite/
+Gaurav_Bansal_EventSpotLite/
 ├── public/                   # Public assets
+│   └── assets/               # Local images for events
 ├── src/                      # Source files
-│   ├── assets/               # Local images for events
 │   ├── components/           # Reusable components (e.g., EventCard, EventCarousel)
 │   ├── pages/                # Main pages (HomePage, EventListPage)
 │   ├── data/                 # Mock data for events
