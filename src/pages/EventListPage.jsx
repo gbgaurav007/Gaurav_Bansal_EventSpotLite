@@ -98,7 +98,7 @@ function EventListPage() {
               <EventList events={filteredEvents} openModal={openModal} />
             ) : (
               <div className="flex flex-col items-center justify-center">
-                <img src='/src/assets/notfound.png'></img>
+                <img src='/assets/notfound.png'></img>
               </div>
             )}
           </motion.div>
