@@ -11,12 +11,12 @@ import { IoBookmarksSharp, IoColorPalette } from "react-icons/io5";
 import { HiMiniSquares2X2 } from "react-icons/hi2";
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import { BallTriangle } from 'react-loader-spinner';
+import { Circles } from 'react-loader-spinner';
 
 function HomePage() {
 
+    // States for loading animation
     const [loading, setLoading] = useState(true);
-
     useEffect(() => {
         const timer = setTimeout(() => {
             setLoading(false);
@@ -30,10 +30,8 @@ function HomePage() {
     const featuredEvents = events.filter(event =>
         event.category === 'Workshop' || event.category === 'Health'
     );
-
     const openModal = (event) => setSelectedEvent(event);
     const closeModal = () => setSelectedEvent(null);
-
     const { ref: navbarRef, inView: navbarInView } = useInView({ triggerOnce: true });
     const { ref: carouselRef, inView: carouselInView } = useInView({ triggerOnce: true });
     const { ref: trendingRef, inView: trendingInView } = useInView({ triggerOnce: true });
@@ -41,6 +39,7 @@ function HomePage() {
     const { ref: featuredRef, inView: featuredInView } = useInView({ triggerOnce: true });
     const { ref: footerRef, inView: footerInView } = useInView({ triggerOnce: true });
 
+    // Event categories and icons for genre section
     const genres = [
         { name: 'Music', icon: <FaMusic className="text-purple-600 text-4xl" /> },
         { name: 'Workshop', icon: <FaChalkboardTeacher className="text-teal-600 text-4xl" /> },
@@ -49,29 +48,31 @@ function HomePage() {
         { name: 'Entertainment', icon: <FaFilm className="text-blue-600 text-4xl" /> },
     ];
 
+    // Handle navigation to the EventListPage with genre as state
     const navigate = useNavigate();
-
     const handleGenreClick = (genre) => {
         navigate('/events', { state: { genre } });
     };
 
     return (
-
         <div>
             {loading ? (
+                // Show loading spinner while loading
                 <div className="flex items-center justify-center h-screen">
-                    <BallTriangle
-                        height={100}
-                        width={100}
-                        radius={5}
-                        color="#4fa94d"
-                        ariaLabel="ball-triangle-loading"
-                        visible={true}
-                        wrapperStyle={{}}
+                    <Circles
+                    height="80"
+                    width="80"
+                    ariaLabel="circles-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    visible={true}
+                    color="#2196F3"
                     />
                 </div>
             ) : (
                 <div className="bg-gray-100 min-h-screen">
+
+                    {/* Navbar*/}
                     <motion.div
                         ref={navbarRef}
                         initial={{ opacity: 0, y: -50 }}
@@ -81,6 +82,7 @@ function HomePage() {
                         <Navbar />
                     </motion.div>
 
+                    {/* Main carousel with animation */}
                     <motion.div
                         ref={carouselRef}
                         initial={{ opacity: 0, y: -50 }}
@@ -90,6 +92,7 @@ function HomePage() {
                         <Carousel />
                     </motion.div>
 
+                    {/* Trending events section */}
                     <motion.div
                         ref={trendingRef}
                         initial={{ opacity: 0, y: -50 }}
@@ -103,6 +106,7 @@ function HomePage() {
                         />
                     </motion.div>
 
+                    {/* Browse by genre section */}
                     <motion.div
                         ref={genreRef}
                         initial={{ opacity: 0, y: -50 }}
@@ -131,6 +135,7 @@ function HomePage() {
                         </div>
                     </motion.div>
 
+                    {/* Featured events section */}
                     <motion.div
                         ref={featuredRef}
                         initial={{ opacity: 0, y: -50 }}
@@ -144,6 +149,7 @@ function HomePage() {
                         />
                     </motion.div>
 
+                    {/* Event modal for displaying selected event details */}
                     {selectedEvent && <EventModal event={selectedEvent} closeModal={closeModal} />}
 
                     <motion.div
@@ -152,7 +158,9 @@ function HomePage() {
                         animate={footerInView ? { opacity: 1, y: 0 } : {}}
                         transition={{ duration: 0.8, delay: 0.5 }}
                     >
-                        <Footer/>
+
+                        {/* Footer */}
+                        <Footer />
                     </motion.div>
                 </div>
             )}
