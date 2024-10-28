@@ -79,7 +79,7 @@ function HomePage() {
                 initial={{ opacity: 0, y: -50 }}
                 animate={genreInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.8, delay: 0.5 }}
-                className="py-10 mt-12"
+                className="py-10"
             >
                 <div className="flex items-center space-x-2 mb-8 ml-5">
                     <HiMiniSquares2X2 className="text-blue-500 text-2xl" />

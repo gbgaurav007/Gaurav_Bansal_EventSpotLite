@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
 import EventList from '../components/EventList';
 import EventModal from '../components/EventModal';
-import ClipLoader from 'react-spinners/ClipLoader';
+import { BallTriangle } from 'react-loader-spinner';
 import { motion } from 'framer-motion';
 import events from '../data/events';
 import { useLocation } from 'react-router-dom';
@@ -53,7 +53,15 @@ function EventListPage() {
 
       {loading ? (
         <div className="flex justify-center items-center min-h-screen">
-          <ClipLoader size={50} color={"#FF5733"} loading={loading} />
+          <BallTriangle
+            height={100}
+            width={100}
+            radius={5}
+            color="#FF5733"
+            ariaLabel="ball-triangle-loading"
+            wrapperStyle={{}}
+            visible={true}
+          />
         </div>
       ) : (
         <div className="px-4 py-8 transition-opacity duration-500 ease-in-out opacity-100">

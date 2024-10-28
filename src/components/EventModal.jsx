@@ -16,7 +16,7 @@ const EventModal = ({ event, closeModal }) => {
       onClick={closeModal}
     >
       <motion.div
-        className="bg-white rounded-lg w-[80%] max-w-md p-6 relative overflow-hidden"
+        className="bg-white rounded-lg w-[80%] max-w-xl relative overflow-hidden"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         exit={{ scale: 0 }}
@@ -27,40 +27,40 @@ const EventModal = ({ event, closeModal }) => {
         }}
         onClick={(e) => e.stopPropagation()}
       >
-        <button className="absolute top-4 right-4 text-gray-500" onClick={closeModal}>
-          X
+        <button className="absolute text-3xl font-semi-bold top-4 right-4 text-gray-500" onClick={closeModal}>
+          x
         </button>
 
-        <img src={imagePath} alt={event.name} className="w-full h-48 object-cover rounded-lg" />
+        <img src={imagePath} alt={event.name} className="w-full h-48 object-cover shadow-sm" />
 
-        <h2 className="text-2xl font-bold mt-4">{event.name}</h2>
+        <h2 className="text-2xl font-bold mt-4 ml-6 mr-6">{event.name}</h2>
 
-        <div className="flex items-center mt-2">
+        <div className="flex items-center mt-2 ml-6 mr-6">
           <AiFillStar className="text-yellow-500 mr-2" />
           <span className="text-lg">{event.category}</span>
         </div>
 
-        <div className="flex items-center mt-2">
+        <div className="flex items-center mt-2 ml-6 mr-6">
           <AiOutlineCalendar className="text-gray-500 mr-2" />
           <span className="text-gray-600">{event.date}</span>
         </div>
 
-        <div className="flex items-center mt-2">
+        <div className="flex items-center mt-2 ml-6 mr-6">
           <AiOutlineEnvironment className="text-gray-500 mr-2" />
           <span className="text-gray-600">{event.location}</span>
         </div>
 
-        <h3 className="text-xl font-semibold mt-4">About the Event</h3>
-        <p className="mt-2 text-gray-700">{event.description}</p>
+        <h3 className="text-xl font-semibold mt-4 ml-6 mr-6">About the Event</h3>
+        <p className="mt-2 ml-6 mr-6 text-gray-700">{event.description}</p>
 
-        <div className="mt-4">
+        <div className="m-6">
           <div className="flex justify-between items-center cursor-pointer" onClick={toggleExpand}>
             <h3 className="text-xl font-semibold">Terms and Conditions</h3>
             {isExpanded ? <AiOutlineUp /> : <AiOutlineDown />}
           </div>
           {isExpanded && (
             <motion.div
-              className="mt-2 bg-gray-100 p-4 rounded-lg"
+              className="m-4 bg-gray-100 p-4 rounded-lg"
               initial={{ opacity: 0, height: 0 }}
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}

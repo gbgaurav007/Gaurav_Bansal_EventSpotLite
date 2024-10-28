@@ -17,7 +17,7 @@ function EventCarousel({ events, title, eventsToShow = 3, openModal }) {
     };
 
     return (
-        <div className="mt-20 px-5">
+        <div className="mt-10 px-5">
             <div className="flex justify-between items-center mb-5">
                 <h2 className="text-2xl font-bold">{title}</h2>
                 <button onClick={() => navigate('/events')} className="text-blue-500 font-semibold">
@@ -25,7 +25,7 @@ function EventCarousel({ events, title, eventsToShow = 3, openModal }) {
                 </button>
             </div>
 
-            <div className="relative overflow-hidden">
+            <div className="relative overflow-y-auto no-scrollbar">
                 <motion.div
                     className="flex space-x-6 transition-transform duration-800 ease-in-out"
                     initial={{ x: 0 }}
