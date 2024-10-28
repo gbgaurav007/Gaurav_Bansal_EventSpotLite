@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import EventList from '../components/EventList';
 import EventModal from '../components/EventModal';
-import { BallTriangle } from 'react-loader-spinner';
+import { Circles } from 'react-loader-spinner';
 import { motion } from 'framer-motion';
 import events from '../data/events';
 import { useLocation } from 'react-router-dom';
@@ -25,7 +25,7 @@ function EventListPage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  
+
   // Function to open and close event modal
   const openModal = (event) => setSelectedEvent(event);
   const closeModal = () => setSelectedEvent(null);
@@ -43,8 +43,8 @@ function EventListPage() {
 
   // Filtering events based on search term, genre, and location
   const filteredEvents = events.filter((event) => {
-    const matchesSearch = 
-      event.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+    const matchesSearch =
+      event.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
       event.location.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesGenre = genreFilter === 'All' || event.category === genreFilter;
     const matchesLocation = locationFilter === 'All' || event.city === locationFilter;
@@ -70,14 +70,14 @@ function EventListPage() {
       {/* Loader while events are loading */}
       {loading ? (
         <div className="flex justify-center items-center min-h-screen">
-          <BallTriangle
-            height={100}
-            width={100}
-            radius={5}
-            color="#2196F3"
-            ariaLabel="ball-triangle-loading"
+          <Circles
+            height="80"
+            width="80"
+            ariaLabel="circles-loading"
             wrapperStyle={{}}
+            wrapperClass=""
             visible={true}
+            color="#2196F3"
           />
         </div>
       ) : (
@@ -136,7 +136,7 @@ function EventListPage() {
       {selectedEvent && <EventModal event={selectedEvent} closeModal={closeModal} />}
 
       {/* Footer section */}
-      <Footer/>
+      <Footer />
     </div>
   );
 }
