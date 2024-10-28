@@ -16,14 +16,14 @@ export default function Footer() {
 
 
           {/* Logo and tagline section */}
-          <section className="mb-4 md:mb-0">
+          <section className="mb-4 md:mb-0 items-center flex flex-col">
             <img
               onClick={() => navigate("/")}
               src={logo}
               alt="EventSpot Lite"
-              className="cursor-pointer mb-2 h-12 w-auto"
+              className="cursor-pointer mb-2 h-14 w-auto"
             />
-            <p className="text-lg text-black">Discover Events That Inspire – Explore, Engage, Enjoy!</p>
+            <p className="text-lg text-black">Find Events That Inspire!</p>
           </section>
 
           {/* Links to policies section */}

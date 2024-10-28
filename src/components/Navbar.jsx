@@ -2,7 +2,6 @@ import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import logo from '/assets/logo.png';
-import logo2 from '/assets/logo2.png';
 
 const Navbar = ({ setSearchTerm }) => {
   const navigate = useNavigate();
@@ -16,16 +15,19 @@ const Navbar = ({ setSearchTerm }) => {
     // Main header section with a gradient background and shadow
     <nav className="border-gray-200 bg-gradient-to-b from-blue-400 via-blue-300 to-blue-300 text-white p-3 flex items-center justify-between">
       <Link to="/">
+        <div className='space-x-3 mx-5 hidden md:flex'>
+          <img
+            src={logo}
+            alt="EventSpot Lite"
+            className="h-12 w-auto"
+          />
+          <p className="text-2xl mt-2 text-black">EventSpot Lite</p>
+        </div>
         <img
-          src={logo}
-          alt="EventSpot Lite"
-          className="hidden md:block h-12 w-auto"
-        />
-        <img
-          src={logo2}
-          alt="EventSpot"
-          className="block md:hidden h-12 w-auto"
-        />
+            src={logo}
+            alt="EventSpot Lite"
+            className="block md:hidden h-12 w-13"
+          />
       </Link>
 
       <div
