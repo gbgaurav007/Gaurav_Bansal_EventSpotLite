@@ -12,6 +12,8 @@ function EventListPage() {
   const location = useLocation();
   const initialGenre = location.state?.genre || 'All';
 
+
+  // State hooks for filtering, search, selected event, and loading
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [genreFilter, setGenreFilter] = useState(initialGenre);
   const [locationFilter, setLocationFilter] = useState('All');
@@ -19,13 +21,17 @@ function EventListPage() {
   const [loading, setLoading] = useState(true);
 
 
+  // Scroll to top on component mount
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   
+  // Function to open and close event modal
   const openModal = (event) => setSelectedEvent(event);
   const closeModal = () => setSelectedEvent(null);
 
+
+  // Simulated loading effect on initial render
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
@@ -34,6 +40,8 @@ function EventListPage() {
     return () => clearTimeout(timer);
   }, []);
 
+
+  // Filtering events based on search term, genre, and location
   const filteredEvents = events.filter((event) => {
     const matchesSearch = 
       event.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
@@ -44,6 +52,8 @@ function EventListPage() {
     return matchesSearch && matchesGenre && matchesLocation;
   });
 
+
+  // Update genre or location filter with loading effect
   const handleFilterChange = (type, value) => {
     setLoading(true);
     setTimeout(() => {
@@ -57,22 +67,26 @@ function EventListPage() {
     <div className="bg-gray-100 min-h-screen">
       <Navbar setSearchTerm={setSearchTerm} />
 
+      {/* Loader while events are loading */}
       {loading ? (
         <div className="flex justify-center items-center min-h-screen">
           <BallTriangle
             height={100}
             width={100}
             radius={5}
-            color="#FF5733"
+            color="#2196F3"
             ariaLabel="ball-triangle-loading"
             wrapperStyle={{}}
             visible={true}
           />
         </div>
       ) : (
+
+        // Main event list content
         <div className="px-4 py-8 transition-opacity duration-500 ease-in-out opacity-100">
           <h1 className="text-3xl font-bold text-center mb-10">All Events</h1>
 
+          {/* Filter buttons for genre and location */}
           <div className="flex flex-col items-center justify-center space-y-4 md:space-y-5 md:space-x-8 mb-8">
             <div className="flex flex-wrap items-center">
               <span className="mr-4 font-semibold">Genre:</span>
@@ -80,21 +94,20 @@ function EventListPage() {
                 <button
                   key={genre}
                   onClick={() => handleFilterChange('genre', genre)}
-                  className={`px-4 py-2 m-1 rounded ${genreFilter === genre ? 'bg-red-500 text-white' : 'bg-gray-200'
+                  className={`px-4 py-2 m-1 rounded ${genreFilter === genre ? 'bg-blue-500 text-white' : 'bg-gray-200 hover:bg-blue-200'
                     }`}
                 >
                   {genre}
                 </button>
               ))}
             </div>
-
             <div className="flex flex-wrap items-center">
               <span className="mr-4 font-semibold">Location:</span>
               {['All', 'Chandigarh', 'Panchkula', 'Mohali'].map((location) => (
                 <button
                   key={location}
                   onClick={() => handleFilterChange('location', location)}
-                  className={`px-4 py-2 m-1 rounded ${locationFilter === location ? 'bg-red-500 text-white' : 'bg-gray-200'
+                  className={`px-4 py-2 m-1 rounded ${locationFilter === location ? 'bg-blue-500 text-white' : 'bg-gray-200 hover:bg-blue-200'
                     }`}
                 >
                   {location}
@@ -119,8 +132,10 @@ function EventListPage() {
         </div>
       )}
 
+      {/* Event modal to show event details */}
       {selectedEvent && <EventModal event={selectedEvent} closeModal={closeModal} />}
 
+      {/* Footer section */}
       <Footer/>
     </div>
   );
