@@ -1,5 +1,5 @@
 /* styles.css or index.css */
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Signika+Negative:wght@400;500;600;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -17,5 +17,5 @@
 }
 
 body {
-    @apply font-dosis;
+    @apply font-Signika;
     }

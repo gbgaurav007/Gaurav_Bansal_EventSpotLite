@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 import EventList from '../components/EventList';
 import EventModal from '../components/EventModal';
 import { BallTriangle } from 'react-loader-spinner';
@@ -8,19 +9,20 @@ import events from '../data/events';
 import { useLocation } from 'react-router-dom';
 
 function EventListPage() {
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const location = useLocation();
   const initialGenre = location.state?.genre || 'All';
 
   const [selectedEvent, setSelectedEvent] = useState(null);
   const [genreFilter, setGenreFilter] = useState(initialGenre);
   const [locationFilter, setLocationFilter] = useState('All');
+  const [searchTerm, setSearchTerm] = useState('');
   const [loading, setLoading] = useState(true);
 
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  
   const openModal = (event) => setSelectedEvent(event);
   const closeModal = () => setSelectedEvent(null);
 
@@ -33,9 +35,13 @@ function EventListPage() {
   }, []);
 
   const filteredEvents = events.filter((event) => {
+    const matchesSearch = 
+      event.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+      event.location.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesGenre = genreFilter === 'All' || event.category === genreFilter;
     const matchesLocation = locationFilter === 'All' || event.city === locationFilter;
-    return matchesGenre && matchesLocation;
+
+    return matchesSearch && matchesGenre && matchesLocation;
   });
 
   const handleFilterChange = (type, value) => {
@@ -49,7 +55,7 @@ function EventListPage() {
 
   return (
     <div className="bg-gray-100 min-h-screen">
-      <Navbar />
+      <Navbar setSearchTerm={setSearchTerm} />
 
       {loading ? (
         <div className="flex justify-center items-center min-h-screen">
@@ -106,7 +112,7 @@ function EventListPage() {
               <EventList events={filteredEvents} openModal={openModal} />
             ) : (
               <div className="flex flex-col items-center justify-center">
-                <img src='/assets/notfound.png'></img>
+                <img src='/assets/notfound.png' alt="No events found" />
               </div>
             )}
           </motion.div>
@@ -114,6 +120,8 @@ function EventListPage() {
       )}
 
       {selectedEvent && <EventModal event={selectedEvent} closeModal={closeModal} />}
+
+      <Footer/>
     </div>
   );
 }

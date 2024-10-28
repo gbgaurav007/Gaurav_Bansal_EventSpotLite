@@ -18,7 +18,7 @@ export default {
       },
     },
     fontFamily: {
-      dosis: ["Dosis", "sans-serif"],
+      Signika: ["Signika Negative", "sans-serif"],
     },
     fontWeight: {
       "extra-light": 200,

@@ -8,7 +8,7 @@ const EventCard = ({ event, openModal }) => {
 
   return (
     <div 
-      className="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer hover:shadow-xl transition-transform"
+      className="bg-white rounded-lg shadow-sm overflow-hidden cursor-pointer hover:shadow-xl transition-transform hover:scale-[1.02]"
       onClick={() => openModal(event)}
     >
       <div className="relative overflow-hidden">

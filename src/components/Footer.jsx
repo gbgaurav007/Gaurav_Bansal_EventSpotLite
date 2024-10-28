@@ -8,8 +8,8 @@ export default function Footer() {
   const navigate = useNavigate();
 
   return (
-    <>
-      <footer className="bg-gradient-to-b from-blue-100 to-blue-50 text-white pb-10 pt-10 pl-5 pr-5">
+    <div className="mt-20">
+      <footer className="bg-gradient-to-b from-blue-100 to-blue-50 text-white pb-10 pt-10 pl-5 pr-5  ">
         <div className="container mx-auto flex flex-col md:flex-row justify-between">
 
           <section className="mb-4 md:mb-0">
@@ -56,6 +56,6 @@ export default function Footer() {
           </section>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
