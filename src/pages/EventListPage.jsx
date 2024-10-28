@@ -125,7 +125,8 @@ function EventListPage() {
               <EventList events={filteredEvents} openModal={openModal} />
             ) : (
               <div className="flex flex-col items-center justify-center">
-                <img src='/assets/notfound.png' alt="No events found" />
+                <img src='/assets/notfound.svg' alt="No events found" className="h-80 w-80"/>
+                <h1 className='text-3xl font-bold text-gray-500 -mt-6'>Event Not Found</h1>
               </div>
             )}
           </motion.div>
