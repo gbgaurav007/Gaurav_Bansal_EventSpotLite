@@ -30,7 +30,7 @@ EventSpot Lite is a web application designed to display local events in a respon
 1. **Clone the Repository**
 
    ```bash
-   https://github.com/gbgaurav007/Gaurav_Bansal_EventSpotLite.git
+   git clone https://github.com/gbgaurav007/Gaurav_Bansal_EventSpotLite.git
    cd Gaurav_Bansal_EventSpotLite
    ```
 
